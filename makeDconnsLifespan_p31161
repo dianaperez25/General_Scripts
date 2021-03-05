@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -A p31161
+#SBATCH -n 60
+#SBATCH --mem=160GB
+#SBATCH -t 120:00:00
+#SBATCH -p long
+#SBATCH --job-name="VariantsLS03"
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=dianaperezrivera2024@u.northwestern.edu
+#SBATCH -o "%x.o%j"
+
+## set your working directory
+cd $PATH:/projects/p31161/Scripts
+
+## job commands; <matlabscript> is your MATLAB .m file, specified without the .$
+module load matlab/r2016a
+matlab -nosplash -nodesktop -singleCompThread -r make_dconn_hardcoded
+
+
