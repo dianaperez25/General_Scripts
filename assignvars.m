@@ -8,16 +8,16 @@ function [dice_summary_path, network_assignment_path,winners_summary_path]  = as
 network_names = {'DMN'	'Vis'	'FP'	'Unassigned'	'DAN'	'Unassigned2'	'VAN'	'Sal'	'CO'	'SMd'	'SMl'	'Aud'	'Tpole'	'MTL'	'PMN'	'PON'};
 wb_colors = [1 2 3 5 7 8 9 10 11 12 13 14 15 16];
 
-templates=load('/projects/b1081/Scripts/CIFTI_RELATED/Template_Matching/Templates_consensus.mat');
+templates=load('/Users/diana/Desktop/Research/Templates_consensus.mat');
 %templates=load('/Users/Alexis/Box/Quest_Backup/Scripts/CIFTI_RELATED/Template_Matching/Templates_consensus.mat');
 
 templates=templates.templates(1:59412,:)';
 wb_colors= [1 2 3 5 7 8 9 10 11 12 13 14 15 16];
-cifti_geo = load('/Users/dianaperez/Box/Quest_Backup/member_directories/zladwig/dependencies/Important_Files/Cifti_geo_distances_uint8.mat');
+cifti_geo = load('/Users/diana/Desktop/Important_Files/Cifti_geo_distances_uint8.mat');
 %cifti_geo = load('/Users/Alexis/Box/Quest_Backup/member_directories/zladwig/Important_Files/Cifti_geo_distances_uint8.mat');
 cifti_geo.distances = cifti_geo.distances(1:59412,1:59412);
 %consensus = ft_read_cifti_mod('/projects/b1081/member_directories/zladwig/dependencies/Important_Files/120_colorassn_minsize400_manualconsensus.dtseries.nii');
-consensus = ft_read_cifti_mod('/Users/dianaperez/Box/Quest_Backup/member_directories/zladwig/Important_Files/120_colorassn_minsize400_manualconsensus.dtseries.nii');
+consensus = ft_read_cifti_mod('/Users/diana/Desktop/Important_Files/120_colorassn_minsize400_manualconsensus.dtseries.nii');
 getmaxmatch = 0;    % Sets whether to get best match value for each variant
 minsize = 50;       % Minimum size in vertices for each variant
 
