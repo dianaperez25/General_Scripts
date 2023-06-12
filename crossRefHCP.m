@@ -1,8 +1,9 @@
 clear all
 
 %allSubs = xlsread('RESTRICTED_HCP');
-allSubs = table2cell(readtable('RESTRICTED_HCP.xls'));
-goodSubs = table2cell(readtable('HCP_GoodSubs.xlsx'));
+%allSubs = table2cell(readtable('/Users/diana/Downloads/RESTRICTED_HCP.xls'));
+allSubs = table2cell(readtable('/Users/diana/Downloads/unrestricted_dianaperez25_4_8_2021_20_32_59.csv'));
+goodSubs = table2cell(readtable('/Users/diana/Downloads/HCP_GoodSubs.xlsx'));
 goodSubs_col = cell2mat(goodSubs(1:385,1));
 goodSubs_all = {};
 count = 1;
