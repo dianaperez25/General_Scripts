@@ -1,15 +1,15 @@
 % script to get the number of runs per session
 
 %% EDIT THESE ACCORDING TO YOUR NEEDS
-subject = 'INET062';
-output_dir = '/Users/dianaperez/Desktop/datalists'; 
+subject = 'INET032';
+output_dir = '/Users/dianaperez/Desktop/datalists'
 output_fname = sprintf('%s/sub-%s_datalist.xlsx', output_dir, subject);
 %edit these if needed
 data_dir = '/Volumes/fsmresfiles/PBS/Gratton_Lab/iNetworks/BIDS/Nifti/derivatives/preproc_fmriprep-20.2.0/fmriprep/';
 task = 'rest';
 TR = 1.1;
 dropFr = 5;
-topDir = '/scratch/dcr8536/iNetworks/Nifti/';
+topDir = '/projects/b1081/Lifespan/Nifti/derivatives/';
 dataFolder = 'preproc_fmriprep-20.2.0';
 confoundsFolder = 'preproc_fmriprep-20.2.0';
 FDtype = 'fFD';
@@ -32,7 +32,7 @@ sessions = numel(folders); % here we get the number of folders that start with "
 
 for ses = 1:sessions % for each session we will create a row...
     datalist{end+1,1} = subject; %... with subject ID ...
-    datalist{end,2} = ses;% ... session number ...
+    datalist{end,2} = num2str(ses);% ... session number ...
     datalist{end,3} = task; % ... the task ...
     datalist{end,4} = TR; % ... TR ...
     datalist{end,5} = dropFr; % ... number of frames that will be dropped from the start ...
@@ -46,7 +46,7 @@ for ses = 1:sessions % for each session we will create a row...
     ses_dir = sprintf('%s/ses-%d/func/', subj_dir, ses);
     cd(ses_dir)
     bold_runs = dir(['*', 'rest', '*', 'preproc_bold.nii.gz']); % we find the files that have this string (the rest bold runs)
-    runs = cellstr(extractBefore(extractAfter({bold_runs.name}.', 'run-'), '_space')); % and extract the numbers after the string "run-"
+    runs = cellstr(extractBefore(extractAfter({bold_runs.name}.', 'run-'), '_space')) % and extract the numbers after the string "run-"
     %these lines below will create the string that will go in the last
     %cell, with the run numbers separated by commas
     new_cell = [];
