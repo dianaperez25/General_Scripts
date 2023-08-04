@@ -1,7 +1,7 @@
 % script to get the number of runs per session
 
 %% EDIT THESE ACCORDING TO YOUR NEEDS
-subject = 'INET062';
+subject = 'INET060';
 output_dir = '/Users/dianaperez/Desktop/datalists'; 
 output_fname = sprintf('%s/sub-%s_datalist.xlsx', output_dir, subject);
 %edit these if needed
